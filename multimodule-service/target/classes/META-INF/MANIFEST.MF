@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: benja
 Build-Jdk: 12.0.1
+=======
+Built-By: IN-MP-044
+Build-Jdk: 1.8.0_211
+>>>>>>> c493a8626de39061a04d851d15d6ee108bf55d3f
 Created-By: Maven Integration for Eclipse
 
