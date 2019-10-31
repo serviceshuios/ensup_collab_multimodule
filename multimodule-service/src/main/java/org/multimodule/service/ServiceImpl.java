@@ -1,14 +1,16 @@
 package org.multimodule.service;
 
+import org.multimodule.dao.DaoImpl;
+
 public class ServiceImpl {
 	DaoImpl dao = new DaoImpl();
 	
 public String ajouterPersonne(){
-	dao.ajouterPersonne();
+	dao.methode1();
 	return "ajout personne";
 }
 public String ajouterVoiture(){
-	dao.ajouterVoiture();
+	dao.methode1();
 	return "ajout voiture";
 }
 }
