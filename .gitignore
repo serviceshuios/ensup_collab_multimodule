@@ -5,6 +5,14 @@
 .settings/
 target/
 */target/*
+# Directories #
+
+**/.settings/*
+**/target/*
+**/test-output/*
+.settings/*
+target/*
+test-output/*
 
 # Log file
 *.log
