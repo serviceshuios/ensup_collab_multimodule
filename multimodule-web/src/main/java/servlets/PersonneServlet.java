@@ -5,12 +5,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.multimodule.service.IService;
+import org.multimodule.service.ServiceImpl;
  
 /**
  * Servlet implementation class PersonneServlet
  */
 public class PersonneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	IService service = (IService) new ServiceImpl(); 
         
     /**
      * @see HttpServlet#HttpServlet()
@@ -24,8 +29,8 @@ public class PersonneServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("message", service.ajouterPesonne());
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
