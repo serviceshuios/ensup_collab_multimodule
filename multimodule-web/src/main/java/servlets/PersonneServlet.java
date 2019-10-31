@@ -2,20 +2,23 @@ package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.multimodule.service.IService;
+import javax.servlet.http.HttpSession;
+ 
 import org.multimodule.service.ServiceImpl;
+
  
 /**
  * Servlet implementation class PersonneServlet
  */
+@WebServlet("/PersonneServlet")
 public class PersonneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	IService service = (IService) new ServiceImpl(); 
+	ServiceImpl service = new ServiceImpl(); 
         
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,7 +32,8 @@ public class PersonneServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("message", service.ajouterPesonne());
+		HttpSession session = request.getSession();
+		session.setAttribute("message", service.ajouterPersonne());
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
